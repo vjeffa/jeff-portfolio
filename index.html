@@ -1,0 +1,2989 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Jeff Ngugi Kariuki - Web Developer and Cybersecurity Enthusiast. Modern websites, web applications and security-conscious digital solutions."
+    >
+
+    <meta
+        name="keywords"
+        content="Jeff Ngugi Kariuki, Web Developer Kenya, Cybersecurity Kenya, Website Developer Nairobi, Bug Bounty, Web Security"
+    >
+
+    <meta name="author" content="Jeff Ngugi Kariuki">
+
+    <title>Jeff Ngugi Kariuki | Web Developer & Cybersecurity Enthusiast</title>
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(0, 234, 255, 0.08),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 20%,
+                    rgba(37, 137, 255, 0.08),
+                    transparent 30%
+                ),
+                #050b17;
+
+            color: #f4f8ff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,0.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.025) 1px,
+                    transparent 1px
+                );
+
+            background-size: 45px 45px;
+
+            pointer-events: none;
+            z-index: -2;
+
+            mask-image: linear-gradient(
+                to bottom,
+                black,
+                transparent 85%
+            );
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --bg: #050b17;
+            --bg2: #081225;
+
+            --card: rgba(10, 24, 45, 0.78);
+            --card2: rgba(8, 18, 35, 0.95);
+
+            --cyan: #00eaff;
+            --blue: #2589ff;
+            --green: #00f5a0;
+            --purple: #9b5cff;
+
+            --text: #f4f8ff;
+            --muted: #9caec5;
+
+            --border: rgba(0, 234, 255, 0.18);
+
+            --shadow:
+                0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        /* =========================================================
+           GENERAL
+        ========================================================= */
+
+        .container {
+            width: min(1180px, 92%);
+            margin: auto;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 55px;
+        }
+
+        .section-heading span {
+            display: inline-block;
+
+            color: var(--cyan);
+
+            font-size: 0.78rem;
+            font-weight: 800;
+
+            text-transform: uppercase;
+            letter-spacing: 2px;
+
+            margin-bottom: 12px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        .gradient-text {
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--cyan),
+                    var(--blue),
+                    var(--green)
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            z-index: 1000;
+
+            background: rgba(5, 11, 23, 0.75);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        nav {
+            width: min(1180px, 92%);
+            margin: auto;
+
+            height: 76px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            font-weight: 900;
+        }
+
+        .logo-box {
+            width: 42px;
+            height: 42px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 12px;
+
+            color: #00141a;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--cyan),
+                    var(--blue)
+                );
+
+            box-shadow:
+                0 0 25px rgba(0,234,255,0.25);
+
+            font-weight: 1000;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-text strong {
+            font-size: 0.95rem;
+        }
+
+        .logo-text small {
+            color: var(--muted);
+            font-size: 0.68rem;
+            margin-top: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-weight: 600;
+
+            transition:
+                color 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--cyan);
+            transform: translateY(-1px);
+        }
+
+        .nav-contact {
+            padding: 10px 16px;
+
+            border-radius: 10px;
+
+            background: rgba(0,234,255,0.08);
+            border: 1px solid var(--border);
+
+            color: var(--cyan) !important;
+        }
+
+        .menu-btn {
+            display: none;
+
+            width: 44px;
+            height: 44px;
+
+            border: 1px solid var(--border);
+            background: rgba(0,234,255,0.05);
+
+            border-radius: 10px;
+
+            color: white;
+
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding-top: 120px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 65px;
+
+            align-items: center;
+        }
+
+        .availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            padding: 8px 13px;
+
+            border-radius: 100px;
+
+            background: rgba(0,245,160,0.07);
+            border: 1px solid rgba(0,245,160,0.2);
+
+            color: #a9ffd9;
+
+            font-size: 0.76rem;
+            font-weight: 700;
+
+            margin-bottom: 24px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: var(--green);
+
+            box-shadow:
+                0 0 12px var(--green);
+
+            animation: pulse 1.7s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.35);
+                opacity: 0.6;
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 7vw, 5.8rem);
+            line-height: 0.98;
+            letter-spacing: -3px;
+
+            margin-bottom: 25px;
+        }
+
+        .hero-description {
+            max-width: 690px;
+
+            color: var(--muted);
+
+            font-size: 1.08rem;
+            line-height: 1.8;
+
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+
+            margin-bottom: 28px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+
+            padding: 13px 20px;
+
+            border-radius: 12px;
+
+            font-size: 0.9rem;
+            font-weight: 800;
+
+            border: 1px solid transparent;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-primary {
+            color: #00141a;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--cyan),
+                    #39b9ff
+                );
+
+            box-shadow:
+                0 12px 30px rgba(0,234,255,0.18);
+        }
+
+        .btn-secondary {
+            color: var(--text);
+
+            background: rgba(255,255,255,0.035);
+
+            border-color:
+                rgba(255,255,255,0.12);
+        }
+
+        .btn-whatsapp {
+            color: #001b12;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--green),
+                    #6affc6
+                );
+        }
+
+        .contact-mini {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+
+            color: var(--muted);
+
+            font-size: 0.83rem;
+        }
+
+        .contact-mini span {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        /* =========================================================
+           HERO CODE WINDOW
+        ========================================================= */
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .code-window {
+            position: relative;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(11,30,57,0.94),
+                    rgba(5,14,28,0.97)
+                );
+
+            border: 1px solid var(--border);
+
+            border-radius: 22px;
+
+            box-shadow:
+                var(--shadow),
+                0 0 60px rgba(0,234,255,0.07);
+
+            overflow: hidden;
+
+            transform:
+                perspective(1000px)
+                rotateY(-4deg);
+
+            transition:
+                transform 0.5s ease;
+        }
+
+        .code-window:hover {
+            transform:
+                perspective(1000px)
+                rotateY(0deg)
+                translateY(-5px);
+        }
+
+        .window-top {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+
+            padding: 15px 17px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.06);
+
+            background: rgba(255,255,255,0.025);
+        }
+
+        .window-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .window-dot:nth-child(1) {
+            background: #ff5f57;
+        }
+
+        .window-dot:nth-child(2) {
+            background: #ffbd2e;
+        }
+
+        .window-dot:nth-child(3) {
+            background: #28c840;
+        }
+
+        .window-title {
+            margin-left: auto;
+
+            color: #667d9c;
+
+            font-size: 0.7rem;
+            font-family: monospace;
+        }
+
+        .code-content {
+            padding: 30px;
+
+            font-family:
+                "SFMono-Regular",
+                Consolas,
+                monospace;
+
+            font-size: 0.86rem;
+
+            color: #c6d5e9;
+
+            line-height: 1.95;
+        }
+
+        .code-key {
+            color: #8fdfff;
+        }
+
+        .code-value {
+            color: #9effcf;
+        }
+
+        .code-comment {
+            color: #55708f;
+        }
+
+        .security-card {
+            position: absolute;
+
+            right: -30px;
+            bottom: -35px;
+
+            width: 245px;
+
+            padding: 18px;
+
+            border-radius: 16px;
+
+            background:
+                rgba(5,15,29,0.92);
+
+            border:
+                1px solid rgba(0,245,160,0.24);
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.45);
+
+            backdrop-filter: blur(14px);
+
+            animation: floatCard 4s ease-in-out infinite;
+        }
+
+        @keyframes floatCard {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .security-card small {
+            color: var(--green);
+            font-weight: 800;
+        }
+
+        .security-card p {
+            color: var(--muted);
+            font-size: 0.75rem;
+            margin-top: 6px;
+        }
+
+        /* =========================================================
+           SERVICES
+        ========================================================= */
+
+        .services {
+            background:
+                linear-gradient(
+                    180deg,
+                    transparent,
+                    rgba(8,18,35,0.45),
+                    transparent
+                );
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .service-card {
+            position: relative;
+
+            padding: 27px;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(10,24,45,0.85),
+                    rgba(7,17,33,0.88)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.07);
+
+            overflow: hidden;
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .service-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 120px;
+            height: 120px;
+
+            top: -60px;
+            right: -60px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(0,234,255,0.16),
+                    transparent 70%
+                );
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+
+            border-color:
+                rgba(0,234,255,0.35);
+
+            box-shadow:
+                0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 13px;
+
+            margin-bottom: 20px;
+
+            color: var(--cyan);
+
+            background:
+                rgba(0,234,255,0.07);
+
+            border:
+                1px solid rgba(0,234,255,0.14);
+
+            font-size: 1.3rem;
+        }
+
+        .service-card h3 {
+            font-size: 1rem;
+            margin-bottom: 9px;
+        }
+
+        .service-card p {
+            color: var(--muted);
+            font-size: 0.82rem;
+            line-height: 1.7;
+        }
+
+        /* =========================================================
+           PROJECTS
+        ========================================================= */
+
+        .project-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .project-card {
+            opacity: 0;
+            transform:
+                translateY(50px)
+                scale(0.96);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(10,24,45,0.9),
+                    rgba(7,17,33,0.94)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.07);
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 15px 45px rgba(0,0,0,0.25);
+
+            transition:
+                opacity 0.65s ease,
+                transform 0.65s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .project-card.project-visible {
+            opacity: 1;
+            transform:
+                translateY(0)
+                scale(1);
+        }
+
+        .project-card:nth-child(2) {
+            transition-delay: 0.08s;
+        }
+
+        .project-card:nth-child(3) {
+            transition-delay: 0.16s;
+        }
+
+        .project-card:nth-child(4) {
+            transition-delay: 0.24s;
+        }
+
+        .project-card:nth-child(5) {
+            transition-delay: 0.32s;
+        }
+
+        .project-card:nth-child(6) {
+            transition-delay: 0.40s;
+        }
+
+        .project-card:hover {
+            transform:
+                translateY(-12px)
+                scale(1.015);
+
+            border-color:
+                rgba(0,234,255,0.5);
+
+            box-shadow:
+                0 25px 60px rgba(0,0,0,0.42),
+                0 0 35px rgba(0,234,255,0.06);
+        }
+
+        .project-image {
+            height: 225px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                #09182d;
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.07);
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition:
+                transform 0.6s ease,
+                filter 0.6s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.06);
+
+            filter:
+                brightness(1.08)
+                saturate(1.08);
+        }
+
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(3,8,18,0.65),
+                    transparent 60%
+                );
+
+            pointer-events: none;
+        }
+
+        .project-label {
+            position: absolute;
+
+            left: 14px;
+            top: 14px;
+
+            padding: 6px 10px;
+
+            border-radius: 100px;
+
+            background:
+                rgba(3,10,20,0.78);
+
+            border:
+                1px solid rgba(255,255,255,0.12);
+
+            backdrop-filter: blur(8px);
+
+            color: white;
+
+            font-size: 0.65rem;
+            font-weight: 800;
+
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-body {
+            padding: 24px;
+        }
+
+        .project-body h3 {
+            font-size: 1.12rem;
+            margin-bottom: 9px;
+        }
+
+        .project-body p {
+            color: var(--muted);
+
+            font-size: 0.82rem;
+
+            line-height: 1.7;
+
+            margin-bottom: 17px;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+
+            margin-bottom: 20px;
+        }
+
+        .tech {
+            padding: 5px 9px;
+
+            border-radius: 7px;
+
+            background:
+                rgba(0,234,255,0.055);
+
+            border:
+                1px solid rgba(0,234,255,0.11);
+
+            color: #9edce8;
+
+            font-size: 0.65rem;
+            font-weight: 700;
+        }
+
+        .project-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 9px 13px;
+
+            border-radius: 9px;
+
+            font-size: 0.72rem;
+            font-weight: 800;
+
+            border:
+                1px solid rgba(255,255,255,0.1);
+
+            background:
+                rgba(255,255,255,0.035);
+
+            transition:
+                background 0.25s ease,
+                border-color 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .project-link:hover {
+            background:
+                rgba(0,234,255,0.08);
+
+            border-color:
+                rgba(0,234,255,0.35);
+
+            transform: translateY(-2px);
+        }
+
+        .project-link.primary {
+            background:
+                rgba(0,234,255,0.09);
+
+            color: var(--cyan);
+
+            border-color:
+                rgba(0,234,255,0.2);
+        }
+
+        /* =========================================================
+           SKILLS
+        ========================================================= */
+
+        .skills-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 24px;
+        }
+
+        .skill-panel {
+            padding: 30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(10,24,45,0.85),
+                    rgba(7,17,33,0.92)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.07);
+
+            border-radius: 20px;
+        }
+
+        .skill-panel h3 {
+            margin-bottom: 20px;
+
+            font-size: 1.2rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+        .skill {
+            padding: 9px 12px;
+
+            border-radius: 9px;
+
+            background:
+                rgba(255,255,255,0.035);
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+
+            color: #c5d3e5;
+
+            font-size: 0.75rem;
+        }
+
+        .skill:hover {
+            border-color:
+                rgba(0,234,255,0.35);
+
+            color: var(--cyan);
+        }
+
+        /* =========================================================
+           ABOUT
+        ========================================================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+
+            gap: 55px;
+
+            align-items: center;
+        }
+
+        .profile-card {
+            min-height: 390px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+
+            border-radius: 25px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(0,234,255,0.12),
+                    transparent 55%
+                ),
+                linear-gradient(
+                    145deg,
+                    #0b1c34,
+                    #050d1b
+                );
+
+            border:
+                1px solid var(--border);
+
+            overflow: hidden;
+
+            box-shadow:
+                var(--shadow);
+        }
+
+        .profile-circle {
+            width: 180px;
+            height: 180px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            font-size: 4rem;
+            font-weight: 1000;
+
+            color: #00141a;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--cyan),
+                    var(--blue),
+                    var(--green)
+                );
+
+            box-shadow:
+                0 0 70px rgba(0,234,255,0.22);
+        }
+
+        .profile-ring {
+            position: absolute;
+
+            width: 270px;
+            height: 270px;
+
+            border-radius: 50%;
+
+            border:
+                1px dashed rgba(0,234,255,0.22);
+
+            animation:
+                spin 20s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 18px;
+        }
+
+        .about-text > p {
+            color: var(--muted);
+            line-height: 1.9;
+            margin-bottom: 25px;
+        }
+
+        .why-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 12px;
+        }
+
+        .why-item {
+            padding: 14px;
+
+            border-radius: 12px;
+
+            background:
+                rgba(255,255,255,0.025);
+
+            border:
+                1px solid rgba(255,255,255,0.07);
+        }
+
+        .why-item strong {
+            display: block;
+
+            color: var(--text);
+
+            font-size: 0.8rem;
+
+            margin-bottom: 4px;
+        }
+
+        .why-item span {
+            color: var(--muted);
+
+            font-size: 0.7rem;
+        }
+
+        /* =========================================================
+           CONTACT
+        ========================================================= */
+
+        .contact-section {
+            padding-bottom: 80px;
+        }
+
+        .contact-box {
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 65px 50px;
+
+            text-align: center;
+
+            border-radius: 28px;
+
+            background:
+                radial-gradient(
+                    circle at 20% 10%,
+                    rgba(0,234,255,0.12),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 80% 90%,
+                    rgba(0,245,160,0.09),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    145deg,
+                    rgba(10,28,52,0.95),
+                    rgba(5,14,28,0.98)
+                );
+
+            border:
+                1px solid rgba(0,234,255,0.17);
+        }
+
+        .contact-box h2 {
+            font-size:
+                clamp(2rem, 5vw, 3.5rem);
+
+            line-height: 1.1;
+
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            max-width: 650px;
+
+            margin: 0 auto 28px;
+
+            color: var(--muted);
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 30px 0;
+
+            border-top:
+                1px solid rgba(255,255,255,0.06);
+
+            background:
+                rgba(3,8,17,0.75);
+        }
+
+        .footer-content {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .footer-content p {
+            color: #70839d;
+
+            font-size: 0.75rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 18px;
+        }
+
+        .footer-links a {
+            color: #8497b0;
+
+            font-size: 0.75rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--cyan);
+        }
+
+        /* =========================================================
+           REVEAL ANIMATIONS
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+
+            transform:
+                translateY(30px);
+
+            transition:
+                opacity 0.7s ease,
+                transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1050px) {
+
+            .service-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .project-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 130px;
+            }
+
+            .hero-visual {
+                max-width: 750px;
+            }
+
+            .security-card {
+                right: 10px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-card {
+                max-width: 600px;
+            }
+        }
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                position: fixed;
+
+                top: 76px;
+                left: 4%;
+                right: 4%;
+
+                display: none;
+
+                flex-direction: column;
+                align-items: stretch;
+
+                gap: 5px;
+
+                padding: 14px;
+
+                background:
+                    rgba(5,13,27,0.97);
+
+                border:
+                    1px solid var(--border);
+
+                border-radius: 16px;
+
+                box-shadow:
+                    0 20px 50px rgba(0,0,0,0.5);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 12px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .skills-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            section {
+                padding: 75px 0;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+                letter-spacing: -1.5px;
+            }
+
+            .hero-description {
+                font-size: 0.95rem;
+            }
+
+            .service-grid,
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-image {
+                height: 220px;
+            }
+
+            .contact-box {
+                padding: 45px 22px;
+            }
+
+            .why-list {
+                grid-template-columns: 1fr;
+            }
+
+            .security-card {
+                position: relative;
+
+                right: auto;
+                bottom: auto;
+
+                width: 100%;
+
+                margin-top: 15px;
+            }
+
+            .code-window {
+                transform: none;
+            }
+
+            .code-window:hover {
+                transform: translateY(-5px);
+            }
+
+            .code-content {
+                padding: 20px;
+
+                font-size: 0.72rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-mini {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+
+        /* =========================================================
+           REDUCED MOTION
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .project-card,
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================= -->
+
+    <header>
+
+        <nav>
+
+            <a href="#home" class="logo">
+
+                <div class="logo-box">
+                    JN
+                </div>
+
+                <div class="logo-text">
+
+                    <strong>Jeff Ngugi Kariuki</strong>
+
+                    <small>
+                        Web Developer & Cybersecurity
+                    </small>
+
+                </div>
+
+            </a>
+
+            <button
+                class="menu-btn"
+                id="menuBtn"
+                aria-label="Open navigation menu"
+            >
+                ☰
+            </button>
+
+            <div class="nav-links" id="navLinks">
+
+                <a href="#home" class="active">
+                    Home
+                </a>
+
+                <a href="#services">
+                    Services
+                </a>
+
+                <a href="#projects">
+                    Projects
+                </a>
+
+                <a href="#skills">
+                    Skills
+                </a>
+
+                <a href="#about">
+                    About
+                </a>
+
+                <a href="#contact" class="nav-contact">
+                    Contact
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================= -->
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="container hero-grid">
+
+                <div class="hero-content reveal">
+
+                    <div class="availability">
+
+                        <span class="status-dot"></span>
+
+                        Available for Web Projects & Security Work
+
+                    </div>
+
+                    <h1>
+
+                        Modern Websites.
+                        <br>
+
+                        <span class="gradient-text">
+                            Secure Digital Solutions.
+                        </span>
+
+                    </h1>
+
+                    <p class="hero-description">
+
+                        I'm Jeff Ngugi Kariuki, a web developer and
+                        cybersecurity enthusiast. I build modern,
+                        responsive websites and web applications while
+                        exploring ways to identify and fix security
+                        weaknesses.
+
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="#projects"
+                            class="btn btn-primary"
+                        >
+                            View My Projects →
+                        </a>
+
+                        <a
+                            href="#contact"
+                            class="btn btn-secondary"
+                        >
+                            Get In Touch
+                        </a>
+
+                    </div>
+
+                    <div class="contact-mini">
+
+                        <span>
+                            📱 +254 738 306 933
+                        </span>
+
+                        <span>
+                            ✉️ ngugijeff840@gmail.com
+                        </span>
+
+                        <span>
+                            📍 Kenya
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CODE VISUAL -->
+
+                <div class="hero-visual reveal">
+
+                    <div class="code-window">
+
+                        <div class="window-top">
+
+                            <span class="window-dot"></span>
+                            <span class="window-dot"></span>
+                            <span class="window-dot"></span>
+
+                            <span class="window-title">
+                                developer.js
+                            </span>
+
+                        </div>
+
+                        <div class="code-content">
+
+                            <div>
+                                <span class="code-key">
+                                    const
+                                </span>
+
+                                developer = {
+
+                            </div>
+
+                            <div>
+                                &nbsp;&nbsp;
+                                name:
+                                <span class="code-value">
+                                    "Jeff Ngugi Kariuki"
+                                </span>,
+                            </div>
+
+                            <div>
+                                &nbsp;&nbsp;
+                                location:
+                                <span class="code-value">
+                                    "Kenya"
+                                </span>,
+                            </div>
+
+                            <div>
+                                &nbsp;&nbsp;
+                                focus:
+                                <span class="code-value">
+                                    "Web Development"
+                                </span>,
+                            </div>
+
+                            <div>
+                                &nbsp;&nbsp;
+                                interests: [
+
+                            </div>
+
+                            <div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <span class="code-value">
+                                    "JavaScript"
+                                </span>,
+                            </div>
+
+                            <div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <span class="code-value">
+                                    "Web Security"
+                                </span>,
+                            </div>
+
+                            <div>
+                                &nbsp;&nbsp;
+                                ]
+                            </div>
+
+                            <div>
+                                };
+                            </div>
+
+                            <br>
+
+                            <div class="code-comment">
+                                // Build. Secure. Improve.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="security-card">
+
+                        <small>
+                            ✓ SECURITY-CONSCIOUS DEVELOPMENT
+                        </small>
+
+                        <p>
+                            Web security • Vulnerability research
+                            • Responsible disclosure
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SERVICES
+        ====================================================== -->
+
+        <section class="services" id="services">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <span>
+                        What I Do
+                    </span>
+
+                    <h2>
+                        Digital solutions built around
+                        <span class="gradient-text">
+                            real business needs.
+                        </span>
+                    </h2>
+
+                    <p>
+                        From business websites to custom web
+                        applications and security testing, I focus
+                        on creating practical and modern solutions.
+                    </p>
+
+                </div>
+
+
+                <div class="service-grid">
+
+
+                    <div class="service-card reveal">
+
+                        <div class="service-icon">
+                            🌐
+                        </div>
+
+                        <h3>
+                            Website Development
+                        </h3>
+
+                        <p>
+                            Modern, responsive and professional
+                            websites designed for businesses,
+                            individuals and organizations.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card reveal">
+
+                        <div class="service-icon">
+                            🛒
+                        </div>
+
+                        <h3>
+                            E-commerce Websites
+                        </h3>
+
+                        <p>
+                            Online stores with product pages,
+                            shopping experiences and business
+                            management functionality.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card reveal">
+
+                        <div class="service-icon">
+                            📅
+                        </div>
+
+                        <h3>
+                            Booking Systems
+                        </h3>
+
+                        <p>
+                            Booking and appointment interfaces for
+                            salons, spas, restaurants, consultants
+                            and service businesses.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card reveal">
+
+                        <div class="service-icon">
+                            🛡️
+                        </div>
+
+                        <h3>
+                            Bug Bounty & Security Testing
+                        </h3>
+
+                        <p>
+                            Authorized testing of web applications
+                            to identify security weaknesses and
+                            document responsible findings.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card reveal">
+
+                        <div class="service-icon">
+                            🔐
+                        </div>
+
+                        <h3>
+                            Web Application Security
+                        </h3>
+
+                        <p>
+                            Security-conscious development and
+                            testing focused on common web
+                            application vulnerabilities.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card reveal">
+
+                        <div class="service-icon">
+                            🔧
+                        </div>
+
+                        <h3>
+                            Website Maintenance
+                        </h3>
+
+                        <p>
+                            Updates, improvements, bug fixes and
+                            ongoing support for existing websites.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card reveal">
+
+                        <div class="service-icon">
+                            ⚙️
+                        </div>
+
+                        <h3>
+                            Custom Web Solutions
+                        </h3>
+
+                        <p>
+                            Custom dashboards, internal tools,
+                            business systems and web applications.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card reveal">
+
+                        <div class="service-icon">
+                            💬
+                        </div>
+
+                        <h3>
+                            Consultation & Support
+                        </h3>
+
+                        <p>
+                            Guidance on website planning, digital
+                            solutions, hosting and security-conscious
+                            implementation.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PROJECTS
+        ====================================================== -->
+
+        <section id="projects">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <span>
+                        Selected Projects
+                    </span>
+
+                    <h2>
+                        Projects & digital
+                        <span class="gradient-text">
+                            concepts.
+                        </span>
+                    </h2>
+
+                    <p>
+                        A selection of web applications, business
+                        website concepts and security-focused work.
+                    </p>
+
+                </div>
+
+
+                <div class="project-grid">
+
+
+                    <!-- KPL FANTASY -->
+
+                    <article class="project-card">
+
+                        <div class="project-image">
+
+                            <img
+                                src="assets/kpl-fantasy.png"
+                                alt="KPL Fantasy project preview"
+                                loading="lazy"
+                            >
+
+                            <div class="image-overlay"></div>
+
+                            <span class="project-label">
+                                Live Project
+                            </span>
+
+                        </div>
+
+                        <div class="project-body">
+
+                            <h3>
+                                KPL Fantasy
+                            </h3>
+
+                            <p>
+                                A Kenyan Premier League fantasy
+                                football web application with
+                                squad management, fixtures and
+                                fantasy football functionality.
+                            </p>
+
+                            <div class="tech-list">
+
+                                <span class="tech">
+                                    React
+                                </span>
+
+                                <span class="tech">
+                                    Node.js
+                                </span>
+
+                                <span class="tech">
+                                    MySQL
+                                </span>
+
+                            </div>
+
+                            <div class="project-links">
+
+                                <a
+                                    href="https://kpl-fantasy.onrender.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="project-link primary"
+                                >
+                                    Live Demo ↗
+                                </a>
+
+                                <a
+                                    href="https://github.com/vjeffa/kpl-fantasy"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="project-link"
+                                >
+                                    GitHub ↗
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- MASSAGE -->
+
+                    <article class="project-card">
+
+                        <div class="project-image">
+
+                            <img
+                                src="assets/massage-spa.png"
+                                alt="Massage and spa website project preview"
+                                loading="lazy"
+                            >
+
+                            <div class="image-overlay"></div>
+
+                            <span class="project-label">
+                                Website Concept
+                            </span>
+
+                        </div>
+
+                        <div class="project-body">
+
+                            <h3>
+                                Massage & Spa Website
+                            </h3>
+
+                            <p>
+                                A modern wellness business website
+                                concept featuring services,
+                                appointment information and a
+                                professional customer experience.
+                            </p>
+
+                            <div class="tech-list">
+
+                                <span class="tech">
+                                    HTML
+                                </span>
+
+                                <span class="tech">
+                                    CSS
+                                </span>
+
+                                <span class="tech">
+                                    JavaScript
+                                </span>
+
+                            </div>
+
+                            <div class="project-links">
+
+                                <a
+                                    href="#contact"
+                                    class="project-link primary"
+                                >
+                                    Discuss Project →
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- RESTAURANT -->
+
+                    <article class="project-card">
+
+                        <div class="project-image">
+
+                            <img
+                                src="assets/restaurant.png"
+                                alt="Restaurant website project preview"
+                                loading="lazy"
+                            >
+
+                            <div class="image-overlay"></div>
+
+                            <span class="project-label">
+                                Website Concept
+                            </span>
+
+                        </div>
+
+                        <div class="project-body">
+
+                            <h3>
+                                Restaurant Website
+                            </h3>
+
+                            <p>
+                                A restaurant website concept with
+                                menu presentation, contact details,
+                                reservation functionality and a
+                                modern visual experience.
+                            </p>
+
+                            <div class="tech-list">
+
+                                <span class="tech">
+                                    HTML
+                                </span>
+
+                                <span class="tech">
+                                    CSS
+                                </span>
+
+                                <span class="tech">
+                                    JavaScript
+                                </span>
+
+                            </div>
+
+                            <div class="project-links">
+
+                                <a
+                                    href="#contact"
+                                    class="project-link primary"
+                                >
+                                    Discuss Project →
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- POS -->
+
+                    <article class="project-card">
+
+                        <div class="project-image">
+
+                            <img
+                                src="assets/pos-system.png"
+                                alt="Point of sale system project preview"
+                                loading="lazy"
+                            >
+
+                            <div class="image-overlay"></div>
+
+                            <span class="project-label">
+                                System Concept
+                            </span>
+
+                        </div>
+
+                        <div class="project-body">
+
+                            <h3>
+                                POS System
+                            </h3>
+
+                            <p>
+                                A point-of-sale system concept for
+                                managing sales, products, inventory,
+                                customers and business operations.
+                            </p>
+
+                            <div class="tech-list">
+
+                                <span class="tech">
+                                    React
+                                </span>
+
+                                <span class="tech">
+                                    Node.js
+                                </span>
+
+                                <span class="tech">
+                                    MySQL
+                                </span>
+
+                            </div>
+
+                            <div class="project-links">
+
+                                <a
+                                    href="#contact"
+                                    class="project-link primary"
+                                >
+                                    Discuss Project →
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- SECURITY -->
+
+                    <article class="project-card">
+
+                        <div class="project-image">
+
+                            <img
+                                src="assets/security-testing.png"
+                                alt="Web security testing project preview"
+                                loading="lazy"
+                            >
+
+                            <div class="image-overlay"></div>
+
+                            <span class="project-label">
+                                Security
+                            </span>
+
+                        </div>
+
+                        <div class="project-body">
+
+                            <h3>
+                                Security Testing
+                            </h3>
+
+                            <p>
+                                Security-testing demonstrations
+                                focused on authorized web application
+                                testing, vulnerability research and
+                                responsible reporting.
+                            </p>
+
+                            <div class="tech-list">
+
+                                <span class="tech">
+                                    OWASP
+                                </span>
+
+                                <span class="tech">
+                                    Web Security
+                                </span>
+
+                                <span class="tech">
+                                    API Security
+                                </span>
+
+                            </div>
+
+                            <div class="project-links">
+
+                                <a
+                                    href="#contact"
+                                    class="project-link primary"
+                                >
+                                    Discuss Testing →
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CUSTOM WEB -->
+
+                    <article class="project-card">
+
+                        <div class="project-image">
+
+                            <img
+                                src="assets/custom-web-solution.png"
+                                alt="Custom web solution project preview"
+                                loading="lazy"
+                            >
+
+                            <div class="image-overlay"></div>
+
+                            <span class="project-label">
+                                Custom Solution
+                            </span>
+
+                        </div>
+
+                        <div class="project-body">
+
+                            <h3>
+                                Custom Web Solutions
+                            </h3>
+
+                            <p>
+                                Custom web applications and business
+                                systems designed around specific
+                                workflows and requirements.
+                            </p>
+
+                            <div class="tech-list">
+
+                                <span class="tech">
+                                    JavaScript
+                                </span>
+
+                                <span class="tech">
+                                    APIs
+                                </span>
+
+                                <span class="tech">
+                                    Database
+                                </span>
+
+                            </div>
+
+                            <div class="project-links">
+
+                                <a
+                                    href="#contact"
+                                    class="project-link primary"
+                                >
+                                    Start a Project →
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SKILLS
+        ====================================================== -->
+
+        <section id="skills">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <span>
+                        Technical Skills
+                    </span>
+
+                    <h2>
+                        Tools I use to
+                        <span class="gradient-text">
+                            build & secure.
+                        </span>
+                    </h2>
+
+                </div>
+
+
+                <div class="skills-layout">
+
+
+                    <div class="skill-panel reveal">
+
+                        <h3>
+                            💻 Development
+                        </h3>
+
+                        <div class="skill-list">
+
+                            <span class="skill">HTML5</span>
+
+                            <span class="skill">CSS3</span>
+
+                            <span class="skill">JavaScript</span>
+
+                            <span class="skill">React</span>
+
+                            <span class="skill">Node.js</span>
+
+                            <span class="skill">Express.js</span>
+
+                            <span class="skill">MySQL</span>
+
+                            <span class="skill">MongoDB</span>
+
+                            <span class="skill">Git & GitHub</span>
+
+                            <span class="skill">REST APIs</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-panel reveal">
+
+                        <h3>
+                            🛡️ Cybersecurity
+                        </h3>
+
+                        <div class="skill-list">
+
+                            <span class="skill">
+                                Web Application Security Testing
+                            </span>
+
+                            <span class="skill">
+                                OWASP Top 10
+                            </span>
+
+                            <span class="skill">
+                                Authentication Testing
+                            </span>
+
+                            <span class="skill">
+                                Authorization Testing
+                            </span>
+
+                            <span class="skill">
+                                API Security Testing
+                            </span>
+
+                            <span class="skill">
+                                XSS Testing
+                            </span>
+
+                            <span class="skill">
+                                SQL Injection Testing
+                            </span>
+
+                            <span class="skill">
+                                CSRF / IDOR Testing
+                            </span>
+
+                            <span class="skill">
+                                Vulnerability Reporting
+                            </span>
+
+                            <span class="skill">
+                                Responsible Disclosure
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ABOUT
+        ====================================================== -->
+
+        <section id="about">
+
+            <div class="container">
+
+                <div class="about-grid">
+
+
+                    <div class="profile-card reveal">
+
+                        <div class="profile-ring"></div>
+
+                        <div class="profile-circle">
+                            JN
+                        </div>
+
+                    </div>
+
+
+                    <div class="about-text reveal">
+
+                        <span
+                            style="
+                                display:inline-block;
+                                color:var(--cyan);
+                                font-size:.78rem;
+                                font-weight:800;
+                                text-transform:uppercase;
+                                letter-spacing:2px;
+                                margin-bottom:10px;
+                            "
+                        >
+                            About Me
+                        </span>
+
+                        <h3>
+                            Jeff Ngugi Kariuki
+                        </h3>
+
+                        <p>
+
+                            I'm a web developer and cybersecurity
+                            enthusiast based in Kenya. I enjoy
+                            building modern web applications,
+                            solving real-world problems and
+                            exploring ways to make websites and
+                            applications more secure.
+
+                        </p>
+
+                        <div class="why-list">
+
+
+                            <div class="why-item">
+
+                                <strong>
+                                    Clean & Responsive Designs
+                                </strong>
+
+                                <span>
+                                    Interfaces that work across
+                                    desktop, tablet and mobile.
+                                </span>
+
+                            </div>
+
+
+                            <div class="why-item">
+
+                                <strong>
+                                    Security-Conscious Development
+                                </strong>
+
+                                <span>
+                                    Security considered throughout
+                                    the development process.
+                                </span>
+
+                            </div>
+
+
+                            <div class="why-item">
+
+                                <strong>
+                                    Attention to Detail
+                                </strong>
+
+                                <span>
+                                    Focus on usability, appearance
+                                    and functionality.
+                                </span>
+
+                            </div>
+
+
+                            <div class="why-item">
+
+                                <strong>
+                                    Clear Communication
+                                </strong>
+
+                                <span>
+                                    Straightforward communication
+                                    throughout a project.
+                                </span>
+
+                            </div>
+
+
+                            <div class="why-item">
+
+                                <strong>
+                                    Flexible Solutions
+                                </strong>
+
+                                <span>
+                                    Solutions adapted to different
+                                    business requirements.
+                                </span>
+
+                            </div>
+
+
+                            <div class="why-item">
+
+                                <strong>
+                                    Continuous Learning
+                                </strong>
+
+                                <span>
+                                    Constantly improving development
+                                    and security skills.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CONTACT
+        ====================================================== -->
+
+        <section
+            class="contact-section"
+            id="contact"
+        >
+
+            <div class="container">
+
+                <div class="contact-box reveal">
+
+                    <h2>
+
+                        Have a project in mind?
+
+                        <br>
+
+                        <span class="gradient-text">
+                            Let's build it.
+                        </span>
+
+                    </h2>
+
+                    <p>
+
+                        Whether you need a business website,
+                        custom web application or authorized
+                        security testing, let's discuss what
+                        you need and build a solution around it.
+
+                    </p>
+
+                    <div class="contact-buttons">
+
+                        <a
+                            href="https://wa.me/254738306933"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-whatsapp"
+                        >
+                            WhatsApp Me
+                        </a>
+
+                        <a
+                            href="mailto:ngugijeff840@gmail.com"
+                            class="btn btn-secondary"
+                        >
+                            Send Email
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer>
+
+        <div class="container footer-content">
+
+            <p>
+                © <span id="year"></span>
+                Jeff Ngugi Kariuki. All rights reserved.
+            </p>
+
+            <div class="footer-links">
+
+                <a href="#home">
+                    Home
+                </a>
+
+                <a href="#projects">
+                    Projects
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+                <a
+                    href="https://github.com/vjeffa"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================= -->
+
+    <script>
+
+        /* =====================================================
+           MOBILE MENU
+        ====================================================== */
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", () => {
+
+            navLinks.classList.toggle("open");
+
+            menuBtn.textContent =
+                navLinks.classList.contains("open")
+                    ? "✕"
+                    : "☰";
+
+        });
+
+
+        /* =====================================================
+           CLOSE MOBILE MENU
+        ====================================================== */
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(link => {
+
+                link.addEventListener("click", () => {
+
+                    navLinks.classList.remove("open");
+
+                    menuBtn.textContent = "☰";
+
+                });
+
+            });
+
+
+        /* =====================================================
+           PROJECT CARD ANIMATION
+        ====================================================== */
+
+        const projectCards =
+            document.querySelectorAll(".project-card");
+
+        const projectObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target
+                                .classList
+                                .add("project-visible");
+
+                            projectObserver.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        projectCards.forEach(card => {
+
+            projectObserver.observe(card);
+
+        });
+
+
+        /* =====================================================
+           GENERAL REVEAL ANIMATION
+        ====================================================== */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        const revealObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target
+                                .classList
+                                .add("visible");
+
+                            revealObserver.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        revealElements.forEach(element => {
+
+            revealObserver.observe(element);
+
+        });
+
+
+        /* =====================================================
+           CURRENT YEAR
+        ====================================================== */
+
+        document.getElementById("year")
+            .textContent =
+            new Date().getFullYear();
+
+
+        /* =====================================================
+           ACTIVE NAVIGATION
+        ====================================================== */
+
+        const sections =
+            document.querySelectorAll("section[id]");
+
+        const navigationLinks =
+            document.querySelectorAll(
+                ".nav-links a:not(.nav-contact)"
+            );
+
+        function updateActiveNavigation() {
+
+            let currentSection = "";
+
+            sections.forEach(section => {
+
+                const sectionTop =
+                    section.offsetTop - 140;
+
+                const sectionHeight =
+                    section.offsetHeight;
+
+                if (
+                    window.scrollY >= sectionTop &&
+                    window.scrollY <
+                    sectionTop + sectionHeight
+                ) {
+
+                    currentSection =
+                        section.getAttribute("id");
+
+                }
+
+            });
+
+            navigationLinks.forEach(link => {
+
+                link.classList.remove("active");
+
+                if (
+                    link.getAttribute("href") ===
+                    "#" + currentSection
+                ) {
+
+                    link.classList.add("active");
+
+                }
+
+            });
+
+        }
+
+        window.addEventListener(
+            "scroll",
+            updateActiveNavigation
+        );
+
+        updateActiveNavigation();
+
+    </script>
+
+</body>
+</html>
